@@ -1,0 +1,16 @@
+output:
+        logstash:
+            enabled: true
+            hosts:
+                - localhost:5044
+            ssl:
+                certificate_authorities:
+                    - /Users/kkre/downloads/filebeat-6.2.4-darwin-x86_64/logstash-beats.crt
+                timeout: 15
+        filebeat:
+            prospectors:
+                paths:
+                    - /Users/kkre/tmp/*.log
+            document_type: syslog
+
+            

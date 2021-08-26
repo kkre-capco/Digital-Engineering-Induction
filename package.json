@@ -1,0 +1,19 @@
+{
+  "name": "node.js-app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "log4js": "^6.3.0",
+    "mocha": "^9.1.0",
+    "mongo-unit": "^2.0.1",
+    "mongoose": "^5.13.8",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
