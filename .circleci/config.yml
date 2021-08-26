@@ -3,6 +3,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.1
+  mongo: circleci/mongo@3.6
 
 workflows:
   sample:
