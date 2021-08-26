@@ -3,11 +3,13 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.1
-
+  mongo: circleci/mongo:3.6
 
 workflows:
   sample:
     jobs:
-        build:
-           docker:
-            - image: circleci/mongo:3.6
+      - node/test:
+          version: '15.1'
+          # This is the node version to use for the `cimg/node` tag
+          # Relevant tags can be found on the CircleCI Developer Hub
+          # https://circleci.com/developer/images/image/cimg/node
