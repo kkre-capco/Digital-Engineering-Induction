@@ -17,5 +17,8 @@
     "swagger-ui-express": "^4.1.6"
   },
   "repository": "https://github.com/kkre-capco/Digital-Engineering-Induction.git",
-  "author": "kkre-capco <karen.kaur@capco.com>"
+  "author": "kkre-capco <karen.kaur@capco.com>",
+  "devDependencies": {
+    "mocha-junit-reporter": "^2.0.0"
+  }
 }
