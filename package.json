@@ -5,8 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "test" : "node.js-app"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
