@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "test": "node e2etest.js"
+    "test": "npm test"
   },
   "dependencies": {
     "express": "^4.17.1",
