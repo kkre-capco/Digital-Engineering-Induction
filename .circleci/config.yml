@@ -16,8 +16,8 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
-#       - image: cimg/node:15.1
-      - image: circleci/mongo:4.4
+      - image: cimg/node:15.1
+      # - image: circleci/mongo:3.6
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
@@ -25,14 +25,47 @@ jobs:
       - checkout
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
       # The orb install-packages step will also automatically cache them for faster future runs.
-#       - node/install-packages
+      # - node/install-packages
       # If you are using yarn instead npm, remove the line above and uncomment the two lines below.
+      - node/install:
+          install-yarn: true
       - node/install-packages:
           pkg-manager: yarn 
+      # - run:
+#           name: Run tests
+#           command: npm test
+      # Download and cache dependencies
+
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "build.gradle" }}
+      #     # fallback to using the latest cache if no exact match is found
+      #     - v1-dependencies-
+
+      # - run: gradle dependencies
+
+      # - save_cache:
+      #     paths:
+      #       - ~/.gradle
+      #     key: v1-dependencies-{{ checksum "build.gradle" }}
+
+      # run tests!
+      # - run: gradle test
+
+
+      - run: npm install
+      - run: mkdir ~/junit
       - run:
-          name: Run tests
-          command: npm test
-          
+            command: mocha test --reporter mocha-junit-reporter
+            environment:
+              MOCHA_FILE: ~/junit/test-results.xml
+            when: always
+      - store_test_results:
+            path: ~/junit
+      - store_artifacts:
+            path: ~/junit
+
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
