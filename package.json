@@ -14,7 +14,7 @@
     "mongo-unit": "^2.0.1",
     "mongoose": "^5.13.8",
     "swagger-jsdoc": "^6.1.0",
-    "swagger-ui-express": "^4.1.6",
-    "circleci/mongo": "3.6"
+    "swagger-ui-express": "^4.1.6"
+
   }
 }
