@@ -31,19 +31,18 @@ jobs:
           install-yarn: true
       - node/install-packages:
           pkg-manager: yarn 
-#       - run:
+      - run:
 #           name: Run tests
 #           command: npm test
-    - run:
-        name: save test results
-        command: |
-            mkdir -p ~/junit/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
-        when: always
-            - store_test_results:
-                path: ~/junit
-            - store_artifacts:
-                path: ~/junit 
+            name: save test results
+            command: |
+                mkdir -p ~/junit/
+                find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+            when: always
+                - store_test_results:
+                    path: ~/junit
+                - store_artifacts:
+                    path: ~/junit 
 
 workflows:
   # Below is the definition of your workflow.
